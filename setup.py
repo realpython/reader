@@ -10,6 +10,7 @@ setup(
     version="0.0.1",
     description="Read Real Python Articles",
     long_description=(HERE / "README.md").read_text(),
+    long_description_content_type="text/markdown",
     url="https://github.com/realpython/reader",
     author="Real Python",
     author_email="office@realpython.com",
