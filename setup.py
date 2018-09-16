@@ -8,7 +8,7 @@ HERE = pathlib.Path(__file__).parent
 setup(
     name="realpython-reader",
     version="0.0.1",
-    description="Read Real Python Articles",
+    description="Read Real Python Tutorials",
     long_description=(HERE / "README.md").read_text(),
     long_description_content_type="text/markdown",
     url="https://github.com/realpython/reader",
