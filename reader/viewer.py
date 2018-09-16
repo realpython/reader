@@ -8,6 +8,6 @@ def show(article: str) -> None:
 
 def show_list(site: str, titles: List[str]) -> None:
     """Show list of articles"""
-    print(f"The latest articles from {site}")
+    print(f"The latest tutorials from {site}")
     for article_id, title in enumerate(titles):
         print(f"{article_id:>3} {title}")

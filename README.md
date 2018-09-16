@@ -1,6 +1,6 @@
 # Real Python Feed Reader
 
-The Real Python Feed Reader is a very simple [web feed](https://en.wikipedia.org/wiki/Web_feed) reader that can download the latest Real Python articles from the [Real Python feed](https://realpython.com/contact/#rss-atom-feed).
+The Real Python Feed Reader is a very simple [web feed](https://en.wikipedia.org/wiki/Web_feed) reader that can download the latest Real Python tutorials from the [Real Python feed](https://realpython.com/contact/#rss-atom-feed).
 
 ## Installation
 
@@ -10,10 +10,10 @@ You can install the Real Python Feed Reader from [PyPI](https://pypi.org/project
 
 ## How to use
 
-The Real Python Feed Reader is a command line application. To see a list of the [latest Real Python articles](https://realpython.com/) simply call the program:
+The Real Python Feed Reader is a command line application. To see a list of the [latest Real Python tutorials](https://realpython.com/) simply call the program:
 
     $ realpython 
-    The latest articles from Real Python (https://realpython.com/)
+    The latest tutorials from Real Python (https://realpython.com/)
       0 Logging in Python
       1 The Best Python Books
       2 Conditional Statements in Python
@@ -35,7 +35,7 @@ The Real Python Feed Reader is a command line application. To see a list of the 
      18 Reading and Writing CSV Files in Python
      19 Generating Random Data in Python (Guide)
 
-To read one particular article, call the program with the numerical ID of the article as a parameter:
+To read one particular tutorial, call the program with the numerical ID of the tutorial as a parameter:
 
     $ realpython 0
     # Logging in Python
