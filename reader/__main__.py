@@ -3,6 +3,8 @@
 Usage:
 ------
 
+    $ realpython [options] [<id>]
+
 List the latest tutorials:
 
     $ realpython
@@ -16,6 +18,12 @@ Read one tutorial:
 Read the latest tutorial:
 
     $ realpython 0
+
+
+Available options are:
+
+    -h, --help         Show this help
+    -l, --show-links   Show links in text
 
 
 Contact:
@@ -38,15 +46,22 @@ from reader import viewer
 
 def main() -> None:
     """Read the Real Python article feed"""
+    args = [a for a in sys.argv[1:] if not a.startswith("-")]
+    opts = [o for o in sys.argv[1:] if o.startswith("-")]
+
     # Show help message
-    if "-h" in sys.argv or "--help" in sys.argv:
+    if "-h" in opts or "--help" in opts:
         viewer.show(__doc__)
         return
 
+    # Should links be shown in the text
+    show_links = ("-l" in opts or "--show-links" in opts)
+
     # An article ID is given, show article
-    if len(sys.argv) > 1:
-        article = feed.get_article(sys.argv[1])
-        viewer.show(article)
+    if args:
+        for article_id in args:
+            article = feed.get_article(article_id, show_links)
+            viewer.show(article)
 
     # No ID is given, show list of articles
     else:

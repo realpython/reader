@@ -24,7 +24,7 @@ def get_site() -> str:
     return f"{info.title} ({info.link})"
 
 
-def get_article(article_id: str) -> str:
+def get_article(article_id: str, links: bool = False) -> str:
     """Get article from feed with the given ID"""
     articles = _feed().entries
     try:
@@ -34,11 +34,17 @@ def get_article(article_id: str) -> str:
         msg = f"Unknown article ID, use ID from 0 to {max_id}"
         raise SystemExit(f"Error: {msg}")
 
+    # Get article as HTML
     try:
         html = article.content[0].value
     except AttributeError:
         html = article.summary
-    text = html2text.html2text(html)
+
+    # Convert HTML to plain text
+    to_text = html2text.HTML2Text()
+    to_text.ignore_links = not links
+    text = to_text.handle(html)
+
     return f"# {article.title}\n\n{text}"
 
 
