@@ -1,6 +1,6 @@
 """Interact with the Real Python feed"""
 # Standard library imports
-from typing import List
+from typing import Dict, List
 
 # Third party imports
 import feedparser
@@ -8,15 +8,14 @@ import html2text
 
 # Reader imports
 from reader import URL
-
-_CACHED_FEED = feedparser.FeedParserDict()
+_CACHED_FEEDS: Dict[str, feedparser.FeedParserDict] = dict()
 
 
 def _feed() -> feedparser.FeedParserDict:
     """Cache contents of the feed, so it's only read once"""
-    if not _CACHED_FEED:
-        _CACHED_FEED.update(feedparser.parse(URL))
-    return _CACHED_FEED
+    if URL not in _CACHED_FEEDS:
+        _CACHED_FEEDS[URL] = feedparser.parse(URL)
+    return _CACHED_FEEDS[URL]
 
 
 def get_site() -> str:
@@ -35,7 +34,10 @@ def get_article(article_id: str) -> str:
         msg = f"Unknown article ID, use ID from 0 to {max_id}"
         raise SystemExit(f"Error: {msg}")
 
-    html = article.content[0].value
+    try:
+        html = article.content[0].value
+    except AttributeError:
+        html = article.summary
     text = html2text.html2text(html)
     return f"# {article.title}\n\n{text}"
 
