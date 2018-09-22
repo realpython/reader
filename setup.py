@@ -24,13 +24,10 @@ setup(
     classifiers=[
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python",
+        "Programming Language :: Python :: 2",
         "Programming Language :: Python :: 3",
     ],
     packages=["reader"],
-    install_requires=["feedparser", "html2text"],
-    entry_points={
-        "console_scripts": [
-            "realpython=reader.__main__:main",
-        ]
-    },
+    install_requires=["feedparser", "html2text", "typing"],
+    entry_points={"console_scripts": ["realpython=reader.__main__:main"]},
 )

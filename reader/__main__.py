@@ -3,7 +3,7 @@
 Usage:
 ------
 
-    $ realpython [options] [<id>]
+    $ realpython [options] [id] [id ...]
 
 List the latest tutorials:
 
@@ -44,7 +44,7 @@ from reader import feed
 from reader import viewer
 
 
-def main() -> None:
+def main():  # type: () -> None
     """Read the Real Python article feed"""
     args = [a for a in sys.argv[1:] if not a.startswith("-")]
     opts = [o for o in sys.argv[1:] if o.startswith("-")]
@@ -55,7 +55,7 @@ def main() -> None:
         return
 
     # Should links be shown in the text
-    show_links = ("-l" in opts or "--show-links" in opts)
+    show_links = "-l" in opts or "--show-links" in opts
 
     # An article ID is given, show article
     if args:
