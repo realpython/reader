@@ -1,16 +1,18 @@
 # Real Python Feed Reader
 
-The Real Python Feed Reader is a very simple [web feed](https://en.wikipedia.org/wiki/Web_feed) reader that can download the latest Real Python tutorials from the [Real Python feed](https://realpython.com/contact/#rss-atom-feed).
+The Real Python Feed Reader is a basic [web feed](https://en.wikipedia.org/wiki/Web_feed) reader that can download the latest Real Python tutorials from the [Real Python feed](https://realpython.com/contact/#rss-atom-feed).
 
 ## Installation
 
 You can install the Real Python Feed Reader from [PyPI](https://pypi.org/project/realpython-reader/):
 
-    pip install realypython-reader
+    pip install realpython-reader
+
+The reader is supported on Python 2.7, as well as Python 3.4 and above.
 
 ## How to use
 
-The Real Python Feed Reader is a command line application. To see a list of the [latest Real Python tutorials](https://realpython.com/) simply call the program:
+The Real Python Feed Reader is a command line application, named `realpython`. To see a list of the [latest Real Python tutorials](https://realpython.com/) simply call the program:
 
     $ realpython 
     The latest tutorials from Real Python (https://realpython.com/)
