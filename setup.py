@@ -1,15 +1,21 @@
+"""Setup script for realpython-reader"""
+
 import pathlib
-from setuptools import find_packages, setup
+from setuptools import setup
 
 # The directory containing this file
 HERE = pathlib.Path(__file__).parent
 
+# The text of the README file
+README = (HERE / "README.md").read_text()
 
+
+# This call to setup() does all the work
 setup(
     name="realpython-reader",
     version="0.0.1",
     description="Read Real Python Tutorials",
-    long_description=(HERE / "README.md").read_text(),
+    long_description=README,
     long_description_content_type="text/markdown",
     url="https://github.com/realpython/reader",
     author="Real Python",
@@ -20,7 +26,7 @@ setup(
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
     ],
-    packages=find_packages(exclude=("tests",)),
+    packages=["reader"],
     install_requires=["feedparser", "html2text"],
     entry_points={
         "console_scripts": [
