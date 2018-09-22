@@ -1,6 +1,6 @@
 """Tests for the reader.feed module"""
 # Standard library imports
-import pathlib
+import os.path
 
 # Third party imports
 import pytest
@@ -9,13 +9,13 @@ import pytest
 from reader import feed
 
 # Current directory
-HERE = pathlib.Path(__file__).parent
+HERE = os.path.dirname(__file__)
 
 
 @pytest.fixture
 def monkeypatch_feed(monkeypatch):
     """Use local file instead of downloading feed from web"""
-    local_path = HERE / "realpython_20180919.xml"
+    local_path = os.path.join(HERE, "realpython_20180919.xml")
     monkeypatch.setattr(feed, "URL", local_path)
     return local_path
 
@@ -23,7 +23,7 @@ def monkeypatch_feed(monkeypatch):
 @pytest.fixture
 def monkeypatch_summary_feed(monkeypatch):
     """Use local file instead of downloading feed from web"""
-    local_path = HERE / "realpython_descriptions_20180919.xml"
+    local_path = os.path.join(HERE, "realpython_descriptions_20180919.xml")
     monkeypatch.setattr(feed, "URL", local_path)
     return local_path
 

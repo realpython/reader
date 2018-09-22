@@ -30,11 +30,11 @@ def test_show_list(capsys):
     assert stderr == ""
 
     # Site name is shown in header
-    header, *lines = stdout.split("\n")
-    assert site in header
+    lines = stdout.split("\n")
+    assert site in lines[0]
 
     # Each thing is listed preceded by a number
-    for thing, line in zip(things, lines):
-        line_id, *_ = line.split()
-        assert line_id.isnumeric()
+    for thing, line in zip(things, lines[1:]):
+        line_parts = line.split()
+        assert line_parts[0].isnumeric()
         assert thing in line
