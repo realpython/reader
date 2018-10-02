@@ -9,7 +9,7 @@ Import the `feed` module to work with the Real Python feed:
 See https://github.com/realpython/reader/ for more information
 """
 # Version of realpython-reader package
-__version__ = "0.0.1"
+__version__ = "0.1.0"
 
 # URL of Real Python feed
 URL = "https://realpython.com/atom.xml"

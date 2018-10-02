@@ -13,8 +13,8 @@ README = (HERE / "README.md").read_text()
 # This call to setup() does all the work
 setup(
     name="realpython-reader",
-    version="0.0.1",
-    description="Read Real Python Tutorials",
+    version="0.1.0",
+    description="Read Real Python tutorials",
     long_description=README,
     long_description_content_type="text/markdown",
     url="https://github.com/realpython/reader",
