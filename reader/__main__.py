@@ -35,6 +35,12 @@ More information is available at:
 
 - https://pypi.org/project/realpython-reader/
 - https://github.com/realpython/reader
+
+
+Version:
+--------
+
+- realpython-reader v0.1.1
 """
 # Standard library imports
 import sys

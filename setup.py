@@ -1,19 +1,19 @@
 """Setup script for realpython-reader"""
 
-import pathlib
+import os.path
 from setuptools import setup
 
 # The directory containing this file
-HERE = pathlib.Path(__file__).parent
+HERE = os.path.abspath(os.path.dirname(__file__))
 
 # The text of the README file
-README = (HERE / "README.md").read_text()
-
+with open(os.path.join(HERE, "README.md")) as fid:
+    README = fid.read()
 
 # This call to setup() does all the work
 setup(
     name="realpython-reader",
-    version="0.1.0",
+    version="0.1.1",
     description="Read Real Python tutorials",
     long_description=README,
     long_description_content_type="text/markdown",
