@@ -13,7 +13,7 @@ with open(os.path.join(HERE, "README.md")) as fid:
 # This call to setup() does all the work
 setup(
     name="realpython-reader",
-    version="0.1.1",
+    version="0.2.0",
     description="Read Real Python tutorials",
     long_description=README,
     long_description_content_type="text/markdown",
@@ -28,6 +28,10 @@ setup(
         "Programming Language :: Python :: 3",
     ],
     packages=["reader"],
-    install_requires=["feedparser", "html2text", "typing"],
+    package_data={"reader": ["reader/config.cfg"]},
+    include_package_data=True,
+    install_requires=[
+        "feedparser", "html2text", "importlib_resources", "typing"
+    ],
     entry_points={"console_scripts": ["realpython=reader.__main__:main"]},
 )

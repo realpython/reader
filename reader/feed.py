@@ -12,22 +12,23 @@ from reader import URL
 _CACHED_FEEDS = dict()  # type: Dict[str, feedparser.FeedParserDict]
 
 
-def _feed():  # type: () -> feedparser.FeedParserDict
+def _feed(url=URL):  # type: (str) -> feedparser.FeedParserDict
     """Cache contents of the feed, so it's only read once"""
-    if URL not in _CACHED_FEEDS:
-        _CACHED_FEEDS[URL] = feedparser.parse(URL)
-    return _CACHED_FEEDS[URL]
+    if url not in _CACHED_FEEDS:
+        _CACHED_FEEDS[url] = feedparser.parse(url)
+    return _CACHED_FEEDS[url]
 
 
-def get_site():  # type: () -> str
+def get_site(url=URL):  # type: (str) -> str
     """Get name and link to web site of the feed"""
-    info = _feed().feed
-    return "{info.title} ({info.link})".format(info=info)
+    info = _feed(url).feed
+    return u"{info.title} ({info.link})".format(info=info)
 
 
-def get_article(article_id, links=False):  # type: (str, bool) -> str
+def get_article(article_id, links=False, url=URL):
+    # type: (str, bool, str) -> str
     """Get article from feed with the given ID"""
-    articles = _feed().entries
+    articles = _feed(url).entries
     try:
         article = articles[int(article_id)]
     except (IndexError, ValueError):
@@ -49,7 +50,7 @@ def get_article(article_id, links=False):  # type: (str, bool) -> str
     return u"# {}\n\n{}".format(article.title, text)
 
 
-def get_titles():  # type: () -> List[str]
+def get_titles(url=URL):  # type: (str) -> List[str]
     """List titles in feed"""
-    articles = _feed().entries
+    articles = _feed(url).entries
     return [a.title for a in articles]
