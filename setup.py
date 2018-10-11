@@ -28,6 +28,10 @@ setup(
         "Programming Language :: Python :: 3",
     ],
     packages=["reader"],
-    install_requires=["feedparser", "html2text", "typing"],
+    package_data={"reader": ["reader/config.cfg"]},
+    include_package_data=True,
+    install_requires=[
+        "feedparser", "html2text", "importlib_resources", "typing"
+    ],
     entry_points={"console_scripts": ["realpython=reader.__main__:main"]},
 )

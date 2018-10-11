@@ -46,6 +46,7 @@ Version:
 import sys
 
 # Reader imports
+import reader
 from reader import feed
 from reader import viewer
 
@@ -63,16 +64,19 @@ def main():  # type: () -> None
     # Should links be shown in the text
     show_links = "-l" in opts or "--show-links" in opts
 
+    # Get URL from config file
+    url = reader.URL
+
     # An article ID is given, show article
     if args:
         for article_id in args:
-            article = feed.get_article(article_id, show_links)
+            article = feed.get_article(article_id, links=show_links, url=url)
             viewer.show(article)
 
     # No ID is given, show list of articles
     else:
-        site = feed.get_site()
-        titles = feed.get_titles()
+        site = feed.get_site(url=url)
+        titles = feed.get_titles(url=url)
         viewer.show_list(site, titles)
 
 
