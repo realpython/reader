@@ -14,7 +14,7 @@ with open(os.path.join(HERE, "README.md")) as fid:
 setup(
     name="realpython-reader",
     version="0.2.0",
-    description="Read Real Python tutorials",
+    description="Read the latest Real Python tutorials",
     long_description=README,
     long_description_content_type="text/markdown",
     url="https://github.com/realpython/reader",
@@ -28,7 +28,6 @@ setup(
         "Programming Language :: Python :: 3",
     ],
     packages=["reader"],
-    package_data={"reader": ["reader/config.cfg"]},
     include_package_data=True,
     install_requires=[
         "feedparser", "html2text", "importlib_resources", "typing"
