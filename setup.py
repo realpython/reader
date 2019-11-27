@@ -19,7 +19,7 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/realpython/reader",
     author="Real Python",
-    author_email="office@realpython.com",
+    author_email="info@realpython.com",
     license="MIT",
     classifiers=[
         "License :: OSI Approved :: MIT License",
