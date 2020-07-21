@@ -47,8 +47,7 @@ import sys
 
 # Reader imports
 import reader
-from reader import feed
-from reader import viewer
+from reader import feed, viewer
 
 
 def main():  # type: () -> None
