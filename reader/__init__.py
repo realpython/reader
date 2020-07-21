@@ -9,6 +9,7 @@ Import the `feed` module to work with the Real Python feed:
 See https://github.com/realpython/reader/ for more information
 """
 import importlib_resources as _resources
+
 try:
     from configparser import ConfigParser as _ConfigParser
 except ImportError:  # Python 2
