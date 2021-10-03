@@ -1,8 +1,5 @@
 """Tests for the reader.viewer module"""
 
-# Third party imports
-import pytest
-
 # Reader imports
 from reader import viewer
 

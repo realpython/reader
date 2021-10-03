@@ -1,6 +1,6 @@
 """Tests for the reader.feed module"""
 # Standard library imports
-import os.path
+import pathlib
 
 # Third party imports
 import pytest
@@ -9,19 +9,19 @@ import pytest
 from reader import feed
 
 # Current directory
-HERE = os.path.dirname(__file__)
+HERE = pathlib.Path(__file__).resolve().parent
 
 
 @pytest.fixture
 def local_feed():
     """Use local file instead of downloading feed from web"""
-    return os.path.join(HERE, "realpython_20180919.xml")
+    return HERE / "realpython_20180919.xml"
 
 
 @pytest.fixture
 def local_summary_feed():
     """Use local file instead of downloading feed from web"""
-    return os.path.join(HERE, "realpython_descriptions_20180919.xml")
+    return HERE / "realpython_descriptions_20180919.xml"
 
 
 #

@@ -8,13 +8,13 @@ For more information see the tutorial [How to Publish an Open-Source Python Pack
 
 You can install the Real Python Feed Reader from [PyPI](https://pypi.org/project/realpython-reader/):
 
-    pip install realpython-reader
+    python -m pip install realpython-reader
 
-The reader is supported on Python 2.7, as well as Python 3.4 and above.
+The reader is supported on Python 3.7 and above. Older versions of Python, including Python 2.7, is supported by version 1.0.0 of the reader.
 
 ## How to use
 
-The Real Python Feed Reader is a command line application, named `realpython`. To see a list of the [latest Real Python tutorials](https://realpython.com/) simply call the program:
+The Real Python Feed Reader is a command line application, named `realpython`. To see a list of the [latest Real Python tutorials](https://realpython.com/), call the program without any arguments:
 
     $ realpython
     The latest tutorials from Real Python (https://realpython.com/)
@@ -62,4 +62,3 @@ You can also call the Real Python Feed Reader in your own Python code, by import
     >>> from reader import feed
     >>> feed.get_titles()
     ['How to Publish an Open-Source Python Package to PyPI', ...]
-

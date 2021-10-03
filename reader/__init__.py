@@ -8,19 +8,15 @@ Import the `feed` module to work with the Real Python feed:
 
 See https://github.com/realpython/reader/ for more information
 """
-import importlib_resources as _resources
-
-try:
-    from configparser import ConfigParser as _ConfigParser
-except ImportError:  # Python 2
-    from ConfigParser import ConfigParser as _ConfigParser
-
+from configparser import ConfigParser
+from importlib import resources
 
 # Version of realpython-reader package
 __version__ = "1.0.0"
 
 # Read URL of feed from config file
-_cfg = _ConfigParser()
-with _resources.path("reader", "config.cfg") as _path:
-    _cfg.read(str(_path))
-URL = _cfg.get("feed", "url")
+cfg = ConfigParser()
+with resources.path("reader", "config.cfg") as path:
+    cfg.read(str(path))
+
+URL = cfg.get("feed", "url")

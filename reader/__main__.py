@@ -50,7 +50,7 @@ import reader
 from reader import feed, viewer
 
 
-def main():  # type: () -> None
+def main() -> None:
     """Read the Real Python article feed"""
     args = [a for a in sys.argv[1:] if not a.startswith("-")]
     opts = [o for o in sys.argv[1:] if o.startswith("-")]
@@ -58,7 +58,7 @@ def main():  # type: () -> None
     # Show help message
     if "-h" in opts or "--help" in opts:
         viewer.show(__doc__)
-        return
+        raise SystemExit()
 
     # Should links be shown in the text
     show_links = "-l" in opts or "--show-links" in opts
