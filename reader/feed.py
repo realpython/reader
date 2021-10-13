@@ -1,4 +1,4 @@
-"""Interact with the Real Python feed"""
+"""Interact with the Real Python feed."""
 # Standard library imports
 from typing import Dict, List  # noqa
 
@@ -13,20 +13,20 @@ _CACHED_FEEDS: Dict[str, feedparser.FeedParserDict] = {}
 
 
 def _feed(url: str = URL) -> feedparser.FeedParserDict:
-    """Cache contents of the feed, so it's only read once"""
+    """Cache contents of the feed, so it's only read once."""
     if url not in _CACHED_FEEDS:
         _CACHED_FEEDS[url] = feedparser.parse(url)
     return _CACHED_FEEDS[url]
 
 
 def get_site(url: str = URL) -> str:
-    """Get name and link to web site of the feed"""
+    """Get name and link to web site of the feed."""
     info = _feed(url).feed
     return f"{info.title} ({info.link})"
 
 
 def get_article(article_id: str, links: bool = False, url: str = URL) -> str:
-    """Get article from feed with the given ID"""
+    """Get article from feed with the given ID."""
     articles = _feed(url).entries
     try:
         article = articles[int(article_id)]
@@ -50,6 +50,6 @@ def get_article(article_id: str, links: bool = False, url: str = URL) -> str:
 
 
 def get_titles(url: str = URL) -> List[str]:
-    """List titles in feed"""
+    """List titles in feed."""
     articles = _feed(url).entries
     return [a.title for a in articles]

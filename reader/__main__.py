@@ -1,4 +1,4 @@
-"""Read the latest Real Python tutorials
+"""Read the latest Real Python tutorials.
 
 Usage:
 ------
@@ -51,7 +51,7 @@ from reader import feed, viewer
 
 
 def main() -> None:
-    """Read the Real Python article feed"""
+    """Read the Real Python article feed."""
     args = [a for a in sys.argv[1:] if not a.startswith("-")]
     opts = [o for o in sys.argv[1:] if o.startswith("-")]
 

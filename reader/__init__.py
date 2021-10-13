@@ -1,4 +1,4 @@
-"""Real Python feed reader
+"""Real Python feed reader.
 
 Import the `feed` module to work with the Real Python feed:
 
@@ -6,7 +6,7 @@ Import the `feed` module to work with the Real Python feed:
     >>> feed.get_titles()
     ['Logging in Python', 'The Best Python Books', ...]
 
-See https://github.com/realpython/reader/ for more information
+See https://github.com/realpython/reader/ for more information.
 """
 from configparser import ConfigParser
 from importlib import resources
