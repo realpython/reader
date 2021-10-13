@@ -10,7 +10,7 @@ You can install the Real Python Feed Reader from [PyPI](https://pypi.org/project
 
     python -m pip install realpython-reader
 
-The reader is supported on Python 3.7 and above. Older versions of Python, including Python 2.7, is supported by version 1.0.0 of the reader.
+The reader is supported on Python 3.7 and above. Older versions of Python, including Python 2.7, are supported by version 1.0.0 of the reader.
 
 ## How to use
 

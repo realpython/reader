@@ -9,7 +9,7 @@ import html2text
 # Reader imports
 from reader import URL
 
-_CACHED_FEEDS: Dict[str, feedparser.FeedParserDict] = dict()
+_CACHED_FEEDS: Dict[str, feedparser.FeedParserDict] = {}
 
 
 def _feed(url: str = URL) -> feedparser.FeedParserDict:
