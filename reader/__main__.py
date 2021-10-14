@@ -1,4 +1,4 @@
-"""Read the latest Real Python tutorials
+"""Read the latest Real Python tutorials.
 
 Usage:
 ------
@@ -47,19 +47,18 @@ import sys
 
 # Reader imports
 import reader
-from reader import feed
-from reader import viewer
+from reader import feed, viewer
 
 
-def main():  # type: () -> None
-    """Read the Real Python article feed"""
+def main() -> None:
+    """Read the Real Python article feed."""
     args = [a for a in sys.argv[1:] if not a.startswith("-")]
     opts = [o for o in sys.argv[1:] if o.startswith("-")]
 
     # Show help message
     if "-h" in opts or "--help" in opts:
         viewer.show(__doc__)
-        return
+        raise SystemExit()
 
     # Should links be shown in the text
     show_links = "-l" in opts or "--show-links" in opts

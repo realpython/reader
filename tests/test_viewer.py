@@ -1,7 +1,4 @@
-"""Tests for the reader.viewer module"""
-
-# Third party imports
-import pytest
+"""Tests for the reader.viewer module."""
 
 # Reader imports
 from reader import viewer
@@ -11,7 +8,7 @@ from reader import viewer
 # Tests
 #
 def test_show(capsys):
-    """Test that show adds information to stdout"""
+    """Test that show adds information to stdout."""
     text = "Lorem ipsum dolor sit amet"
     viewer.show(text)
     stdout, stderr = capsys.readouterr()
@@ -22,7 +19,7 @@ def test_show(capsys):
 
 
 def test_show_list(capsys):
-    """Test that show_list shows a list of items with an ID"""
+    """Test that show_list shows a list of items with an ID."""
     site = "Real Python"
     things = ["pathlib", "data classes", "python 3.7", "decorators"]
     viewer.show_list(site, things)
