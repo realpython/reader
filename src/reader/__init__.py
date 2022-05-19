@@ -9,15 +9,18 @@ Import the `feed` module to work with the Real Python feed:
 See https://github.com/realpython/reader/ for more information.
 """
 # Standard library imports
-from configparser import ConfigParser
 from importlib import resources
+
+try:
+    import tomllib
+except ModuleNotFoundError:
+    # Third party imports
+    import tomli as tomllib
+
 
 # Version of realpython-reader package
 __version__ = "1.0.0"
 
-# Read URL of feed from config file
-cfg = ConfigParser()
-with resources.path("reader", "config.cfg") as path:
-    cfg.read(str(path))
-
-URL = cfg.get("feed", "url")
+# Read URL of the Real Python feed from config file
+_cfg = tomllib.loads(resources.read_text("reader", "config.toml"))
+URL = _cfg["feed"]["url"]
