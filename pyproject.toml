@@ -1,0 +1,60 @@
+[build-system]
+requires      = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "realpython-reader"
+version = "1.0.0"
+description = "Read the latest Real Python tutorials"
+readme = "README.md"
+authors = [{ name = "Real Python", email = "info@realpython.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["feed", "reader", "tutorial"]
+dependencies = ["feedparser", "html2text", 'tomli; python_version < "3.11"']
+requires-python = ">=3.7"
+
+    [project.optional-dependencies]
+    build = ["build", "twine"]
+    dev   = ["black", "bumpver", "isort", "mypy", "pytest"]
+
+    [project.scripts]
+    realpython = "reader.__main__:main"
+
+    [project.urls]
+    repository    = "https://github.com/realpython/reader"
+    documentation = "https://realpython.com/pypi-publish-python-package/"
+
+
+[tool.bumpver]
+current_version = "1.0.0"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit_message  = "bump version {old_version} -> {new_version}"
+commit          = true
+tag             = true
+push            = false
+
+    [tool.bumpver.file_patterns]
+    "pyproject.toml" = [
+        'current_version = "{version}"',
+        'version = "{version}"',
+    ]
+    "src/reader/__init__.py" = ["{version}"]
+    "src/reader/__main__.py" = ["- realpython-reader v{version}"]
+
+[tool.isort]
+profile                   = "black"
+import_heading_stdlib     = "Standard library imports"
+import_heading_thirdparty = "Third party imports"
+import_heading_firstparty = "Reader imports"
+
+[tool.mypy]
+strict = true
+
+    [[tool.mypy.overrides]]
+    module                 = "feedparser"
+    ignore_missing_imports = true
