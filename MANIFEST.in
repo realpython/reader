@@ -1,1 +1,1 @@
-include src/reader/*.cfg
+include src/reader/*.toml
