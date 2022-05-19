@@ -46,6 +46,12 @@ push            = false
     "src/reader/__init__.py" = ["{version}"]
     "src/reader/__main__.py" = ["- realpython-reader v{version}"]
 
+[tool.isort]
+profile                   = "black"
+import_heading_stdlib     = "Standard library imports"
+import_heading_thirdparty = "Third party imports"
+import_heading_firstparty = "Reader imports"
+
 [tool.mypy]
 strict = true
 
