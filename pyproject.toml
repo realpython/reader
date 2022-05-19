@@ -43,8 +43,8 @@ push            = false
         'current_version = "{version}"',
         'version = "{version}"',
     ]
-    "reader/__init__.py" = ["{version}"]
-    "reader/__main__.py" = ["- realpython-reader v{version}"]
+    "src/reader/__init__.py" = ["{version}"]
+    "src/reader/__main__.py" = ["- realpython-reader v{version}"]
 
 [tool.mypy]
 strict = true
