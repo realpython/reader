@@ -20,7 +20,7 @@ def _feed(url: str = URL) -> feedparser.FeedParserDict:
 
 
 def get_site(url: str = URL) -> str:
-    """Get name and link to web site of the feed."""
+    """Get name and link to website of the feed."""
     info = _feed(url).feed
     return f"{info.title} ({info.link})"
 
