@@ -1,5 +1,6 @@
 """Interact with the Real Python feed."""
 # Standard library imports
+import platform
 from typing import Dict, List  # noqa
 
 # Third party imports
@@ -22,6 +23,15 @@ def _feed(url: str = URL) -> feedparser.FeedParserDict:
 def get_site(url: str = URL) -> str:
     """Get name and link to website of the feed."""
     info = _feed(url).feed
+    if not info:
+        message = f"Could not read feed at {url}"
+        if platform.system() == "Darwin":
+            message += (
+                ".\n\nYou may need to manually install certificates by running "
+                "`Install Certificates` in your Python installation folder. "
+                "See https://realpython.com/installing-python/"
+            )
+        raise SystemExit(message)
     return f"{info.title} ({info.link})"
 
 
