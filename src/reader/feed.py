@@ -1,6 +1,6 @@
 """Interact with the Real Python feed."""
 # Standard library imports
-from typing import Dict, List  # noqa
+from typing import Dict, List
 
 # Third party imports
 import feedparser
@@ -21,8 +21,17 @@ def _feed(url: str = URL) -> feedparser.FeedParserDict:
 
 def get_site(url: str = URL) -> str:
     """Get name and link to website of the feed."""
-    info = _feed(url).feed
-    return f"{info.title} ({info.link})"
+    info = _feed(url)
+    if exception := info.get("bozo_exception"):
+        message = f"Could not read feed at {url}"
+        if "CERTIFICATE_VERIFY_FAILED" in str(exception):
+            message += (
+                ".\n\nYou may need to manually install certificates by running "
+                "`Install Certificates` in your Python installation folder. "
+                "See https://realpython.com/installing-python/"
+            )
+        raise SystemExit(message)
+    return f"{info.feed.title} ({info.feed.link})"
 
 
 def get_article(article_id: str, links: bool = False, url: str = URL) -> str:
