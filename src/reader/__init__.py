@@ -19,7 +19,7 @@ except ModuleNotFoundError:
 
 
 # Version of realpython-reader package
-__version__ = "1.1.1"
+__version__ = "1.1.2"
 
 # Read URL of the Real Python feed from config file
 _cfg = tomllib.loads(resources.read_text("reader", "config.toml"))
