@@ -1,6 +1,6 @@
 """Interact with the Real Python feed."""
 # Standard library imports
-from typing import Dict, List  # noqa
+from typing import Dict, List
 
 # Third party imports
 import feedparser
