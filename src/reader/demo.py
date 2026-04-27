@@ -4,5 +4,8 @@ def hello_world():
 def main():
     hello_world()
 
+def add(a, b):
+    return a + b
+
 if __name__ == "__main__":
     main()
