@@ -22,9 +22,10 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python -m pip install ruff
-
-      - name: Run Ruff
+      - name: Check lint
         run: ruff check --output-format=github
+      - name: Check formatting
+        run: ruff format --check 
 
 
 
